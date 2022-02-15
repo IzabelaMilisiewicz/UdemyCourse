@@ -1,5 +1,6 @@
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class SeleniumIntroduction {
 
@@ -29,12 +30,18 @@ public class SeleniumIntroduction {
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Milisiza\\Documents\\chromedriver_win32\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		driver.get("https://rahulshettyacademy.com");
-		System.out.println(driver.getTitle());
-		System.out.println(driver.getCurrentUrl());
+		System.out.println("Get title: " + driver.getTitle());
+		System.out.println("Checking current URL: " + driver.getCurrentUrl());
 		driver.close();
+		System.out.println("Web browser closed correctly");
 		//difference between .close and .quit - close zamyka tylko naszego taba a quit zamyka wszystkie powiazane taby w tym oknie, nie mozna ich używać razem
 		
-		// teraz 14 punkt z kursu
+		//Firefox launch
+		//geckodriver
+		
+//		System.setProperty("webdriver.gecko.driver", "C:\\Users\\Milisiza\\Downloads\\geckodriver-v0.30.0-win64\\geckodriver.exe");
+//		WebDriver driver = new FirefoxDriver();
+
 	}
 
 }
