@@ -27,7 +27,7 @@ public class SeleniumIntroduction {
 		// to middle man proxy, should be privided by chrome team
 		//webdriver.chrome.driver -> trzeba podac sciezke do miejsca, w któeym jest zapisany na naszym komuterze chromedriver.exe
 		
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\Milisiza\\Documents\\chromedriver_win32\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "C:\\Users\\IzabelaMilisiewicz\\Downloads\\chromedriver_win32\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		driver.get("https://rahulshettyacademy.com");
 		System.out.println("Get title: " + driver.getTitle());
