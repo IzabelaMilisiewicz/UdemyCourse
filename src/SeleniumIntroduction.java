@@ -29,7 +29,7 @@ public class SeleniumIntroduction {
 		
 		System.setProperty("webdriver.chrome.driver", "C:\\Users\\IzabelaMilisiewicz\\Downloads\\chromedriver_win32\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
-		driver.get("https://rahulshettyacademy.com");
+		driver.get("http://automationpractice.com/index.php");
 		System.out.println("Get title: " + driver.getTitle());
 		System.out.println("Checking current URL: " + driver.getCurrentUrl());
 		driver.close();

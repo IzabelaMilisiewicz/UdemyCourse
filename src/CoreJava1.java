@@ -40,6 +40,10 @@ public class CoreJava1 {
 	{
 		System.out.println(name[i]);
 	}
+	for (String s: name) //z name przy kazdej iteracji bież imie, zawsze trzeba dac typ zmiennej s
+	{
+		System.out.println(s);
+	}
 
 }
 }
