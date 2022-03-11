@@ -27,6 +27,15 @@ public class Locators {
         driver.findElement(By.xpath("//input[@name='email'][1]")).sendKeys("test2@gmail.com");
         //in css you cannot use [index]
         //driver.findElement(By.cssSelector("input[name='email']:nth-child(1)")).clear();
-
+        //parent XPATH
+        // //parentTagname/childTagname[index]
+        driver.findElement(By.xpath("//input[@name='commit']")).click();
+        // css selector = .classname
+        driver.findElement(By.cssSelector(".dsp-flex-xs")).click();
+        //partent on css
+        // PartentTagname childTagname
+        System.out.println(driver.findElement(By.xpath("//div/p[1]")).getText());
+//        System.out.println(driver.findElement(By.cssSelector("div p")).getText());
+        //method title - zczytaj tytul, sprawdz, i dopiero wtedy wez get text z tego elementu
     }
 }
