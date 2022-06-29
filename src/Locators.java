@@ -10,7 +10,7 @@ public class Locators {
 
     public static void main(String[] args) throws InterruptedException {
 
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\IzabelaMilisiewicz\\Downloads\\chromedriver_win32\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\IzabelaMilisiewicz\\Downloads\\chromedriver_win32 (1)\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
             //implicit wait - wait at least x seconds
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
@@ -55,7 +55,9 @@ public class Locators {
             //kiedy tylko pierwsza czesc nazwy atrybutu jest stala mozemy użyc jej cześci - xpath
         driver.findElement(By.xpath("//input[contains(@class,'btn-primary')]")).click();
         System.out.println(driver.findElement(By.cssSelector(".auth-flash-error")).getText());
-
+        driver.close();
 
     }
+
+
 }
