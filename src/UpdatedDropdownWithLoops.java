@@ -13,13 +13,13 @@ public class UpdatedDropdownWithLoops {
         /*int i =1;
         while(1<5)
         {
-            //bedzie sie dzialo dopoki bedzie prawdą
+            //it will happen until it's true
             driver.findElement(By.id("hrefIncAdt")).click(); //4 times
             i++;
         }"
         */
 
-        //a teraz to samo tylko z for loop
+        //and now the same but with for loop
 
         for(int i=1;i<5;i++){
             driver.findElement(By.id("hrefIncAdt")).click(); //4 times
