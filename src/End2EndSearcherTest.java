@@ -13,9 +13,9 @@ public class End2EndSearcherTest {
         WebDriver driver = new ChromeDriver();
         driver.get("https://rahulshettyacademy.com/dropdownsPractise/");
 
+        //checkboces
         WebElement staticDropdown = driver.findElement(By.id("ctl00_mainContent_DropDownListCurrency"));
         Select dropdown = new Select(staticDropdown);  //creating object "dropdown" of class "Select"
-        //dzieki temu co wyzej bedziemy mogli uzywac metody z clasy select na naszej dropdown
         dropdown.selectByIndex(3); //USD
         System.out.println(dropdown.getFirstSelectedOption().getText()); //it returns webelement
         dropdown.selectByVisibleText("AED");
@@ -23,9 +23,7 @@ public class End2EndSearcherTest {
         dropdown.selectByValue("INR"); //value="INR"
         System.out.println(dropdown.getFirstSelectedOption().getText());
 
-        //
-
-
+        //number of passangers
         driver.findElement(By.id("divpaxinfo")).click();
         Thread.sleep(2000);
 
@@ -48,8 +46,7 @@ public class End2EndSearcherTest {
         driver.findElement(By.id("btnclosepaxoption")).click();
         System.out.println(driver.findElement(By.id("divpaxinfo")).getText());
 
-        //
-
+        //destination
         // (//a[@value="MAA"])[2] - xpath for chennai but second one is found!!!
         // //a[@value="BLR"] - Bengaluru
         driver.findElement(By.id("ctl00_mainContent_ddl_originStation1_CTXT")).click();
@@ -65,7 +62,6 @@ public class End2EndSearcherTest {
         driver.findElement(By.cssSelector(".ui-state-default.ui-state-highlight.ui-state-hover")).click();
 
         //
-
         driver.findElement(By.id("autosuggest")).sendKeys("ind");
         Thread.sleep(3000);
         List<WebElement> options =driver.findElements(By.cssSelector("li[class='ui-menu-item'] a"));
@@ -79,8 +75,7 @@ public class End2EndSearcherTest {
             }
         }
 
-        //
-
+        //checkbox
         System.out.println(driver.findElement(By.cssSelector("input[id*='SeniorCitizenDiscount']")).isSelected());
         driver.findElement(By.cssSelector("input[id*='SeniorCitizenDiscount']")).click();
         //check if checkbox is selected - true = selected, false = not selected
