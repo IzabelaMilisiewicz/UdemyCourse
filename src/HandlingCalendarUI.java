@@ -19,6 +19,5 @@ public class HandlingCalendarUI {
         //if you want to use class name in css you have to use . if you want to use id you have to use #
         driver.findElement(By.cssSelector(".ui-state-default.ui-state-highlight.ui-state-hover")).click();
 
-
     }
 }
