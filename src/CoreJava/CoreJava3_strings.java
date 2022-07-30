@@ -1,3 +1,5 @@
+package CoreJava;
+
 public class CoreJava3_strings {
     public static void main(String[] args){
 

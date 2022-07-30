@@ -1,3 +1,5 @@
+package CoreJava;
+
 import java.util.ArrayList; //stad jest nasza klasa array list
 
 public class CoreJava2_array {
