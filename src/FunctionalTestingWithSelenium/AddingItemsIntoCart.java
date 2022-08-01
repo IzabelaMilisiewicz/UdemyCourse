@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class AddingItemsIntoCart {
@@ -13,7 +14,7 @@ public class AddingItemsIntoCart {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\IzabelaMilisiewicz\\Downloads\\chromedriver_win32 (1)\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
 
-        String[] names = {"Cucumber","Brocolli"};
+        String[] itemsNeeded  = {"Cucumber","Brocolli","Beetroot"};
 
         driver.get("https://rahulshettyacademy.com/seleniumPractise/#/");
 
@@ -22,11 +23,16 @@ public class AddingItemsIntoCart {
         for(int i=0;i<products.size();i++)
         {
             String name = products.get(i).getText();
-            if(name.contains("Cucumber"))
+            //check whether name is present in arrayList or not
+            //convert array (use less memory) into arrayList for easy search
+
+            List itemsNeededList = Arrays.asList(itemsNeeded);
+
+            if(itemsNeededList.contains(name))
             {
                 //Click Add to cart
                 driver.findElements(By.xpath("//button[text()='ADD TO CART']")).get(i).click();
-                break;
+                //break; - we cannot use it because we would like to find multiple values
             }
         }
 
