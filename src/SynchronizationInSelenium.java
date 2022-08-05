@@ -5,9 +5,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class SynchronizationInSelenium {
     //implicit wait - set maximum waiting time for WHOLE PROGRAM - wait some time until element will be presented but if it will be sooner than set time, go further
+        //advantages: readable code; disadvantages: if in requirements we have assumption that something should work faster, we can miss it (performance issues skipped)
     //explicit wait - can target specific element
     //combination of both above ways is an ideal solution
     //Thread.sleep - just waiting set time of second, it's a part of java not selenium as implicit and ecplicit - we shouldn't use this in our framework
@@ -15,6 +17,8 @@ public class SynchronizationInSelenium {
     public static void main(String[] args) throws InterruptedException {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\IzabelaMilisiewicz\\Downloads\\chromedriver_win32 (1)\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
+        //implicit wait (it is applied to every line in our test):
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
         String[] itemsNeeded = {"Cucumber", "Brocolli", "Beetroot", "Carrot"};
 
@@ -27,7 +31,8 @@ public class SynchronizationInSelenium {
         driver.findElement(By.cssSelector("img[alt='Cart']")).click();
         driver.findElement(By.xpath("//button[contains(text(), 'PROCEED TO CHECKOUT')]")).click();
         driver.findElement(By.cssSelector("input.promoCode")).sendKeys("rahulshettyacademy");
-
+        driver.findElement(By.cssSelector("button.promoBtn")).click();
+        System.out.println(driver.findElement(By.cssSelector("span.promoInfo")).getText());
     }
 
 
