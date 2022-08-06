@@ -2,6 +2,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait; //explicit wait
 
 import java.util.Arrays;
 import java.util.List;
@@ -11,6 +13,7 @@ public class SynchronizationInSelenium {
     //implicit wait - set maximum waiting time for WHOLE PROGRAM - wait some time until element will be presented but if it will be sooner than set time, go further
         //advantages: readable code; disadvantages: if in requirements we have assumption that something should work faster, we can miss it (performance issues skipped)
     //explicit wait - can target specific element
+        //advantages: applied to particular step; disadvantages: more code
     //combination of both above ways is an ideal solution
     //Thread.sleep - just waiting set time of second, it's a part of java not selenium as implicit and ecplicit - we shouldn't use this in our framework
 
@@ -18,7 +21,9 @@ public class SynchronizationInSelenium {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\IzabelaMilisiewicz\\Downloads\\chromedriver_win32 (1)\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         //implicit wait (it is applied to every line in our test):
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+//        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        //explicit wait:
+        WebDriverWait w =new WebDriverWait(driver,5);
 
         String[] itemsNeeded = {"Cucumber", "Brocolli", "Beetroot", "Carrot"};
 
@@ -30,8 +35,12 @@ public class SynchronizationInSelenium {
 //        s.addItems(driver, itemsNeeded);
         driver.findElement(By.cssSelector("img[alt='Cart']")).click();
         driver.findElement(By.xpath("//button[contains(text(), 'PROCEED TO CHECKOUT')]")).click();
+        //explicit wait
+        w.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input.promoCode")));
         driver.findElement(By.cssSelector("input.promoCode")).sendKeys("rahulshettyacademy");
         driver.findElement(By.cssSelector("button.promoBtn")).click();
+        //explicit wait
+        w.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("span.promoInfo")));
         System.out.println(driver.findElement(By.cssSelector("span.promoInfo")).getText());
     }
 
