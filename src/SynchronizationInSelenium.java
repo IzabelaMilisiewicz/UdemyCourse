@@ -12,8 +12,10 @@ import java.util.concurrent.TimeUnit;
 public class SynchronizationInSelenium {
     //implicit wait - set maximum waiting time for WHOLE PROGRAM - wait some time until element will be presented but if it will be sooner than set time, go further
         //advantages: readable code; disadvantages: if in requirements we have assumption that something should work faster, we can miss it (performance issues skipped)
-    //explicit wait - can target specific element
-        //advantages: applied to particular step; disadvantages: more code
+    //explicit wait - can target specific element - advantages: applied to particular step; disadvantages: more code
+        //- WebDriverWait
+        //-FluentWait - checks if object appears in regulat intrvals (set in fluent wait)
+
     //combination of both above ways is an ideal solution
     //Thread.sleep - just waiting set time of second, it's a part of java not selenium as implicit and ecplicit - we shouldn't use this in our framework
 
