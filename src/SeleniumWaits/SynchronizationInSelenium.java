@@ -1,3 +1,5 @@
+package SeleniumWaits;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -35,7 +37,7 @@ public class SynchronizationInSelenium {
         Thread.sleep(2000);
         addItems(driver, itemsNeeded);
 //        below lines should be here if we wouldn't set "static" for class addItems below, but we did so we can use method from
-//        SynchronizationInSelenium s = new SynchronizationInSelenium();
+//        SeleniumWaits.SynchronizationInSelenium s = new SeleniumWaits.SynchronizationInSelenium();
 //        s.addItems(driver, itemsNeeded);
         driver.findElement(By.cssSelector("img[alt='Cart']")).click();
         driver.findElement(By.xpath("//button[contains(text(), 'PROCEED TO CHECKOUT')]")).click();
