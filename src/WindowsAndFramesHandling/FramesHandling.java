@@ -22,5 +22,6 @@ public class FramesHandling {
         WebElement source = driver.findElement(By.id("draggable"));
         WebElement target = driver.findElement(By.id("droppable"));
         a.dragAndDrop(source, target).build().perform();
+        driver.switchTo().defaultContent(); //we nedd to add it if we would like to do something in main window, not in frame
     }
 }
