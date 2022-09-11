@@ -22,7 +22,6 @@ public class UpdatedDropdownWithLoops {
         */
 
         //and now the same but with for loop
-
         for(int i=1;i<5;i++){
             driver.findElement(By.id("hrefIncAdt")).click(); //4 times
 
