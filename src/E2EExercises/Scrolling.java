@@ -5,6 +5,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 
 import java.util.List;
 
@@ -31,5 +32,21 @@ public class Scrolling {
             sum = sum +Integer.parseInt(values.get(i).getText());
         }
         System.out.println(sum);
+
+        //assertion of sum from webpage and sum from our calculation
+        int total = Integer.parseInt(driver.findElement(By.cssSelector(".totalAmount")).getText().split(":")[1].trim());
+        System.out.println();
+        Assert.assertEquals(sum, total);   //assert comes from testNg
+
+        //sum up values from second table
+        List<WebElement> values2 = driver.findElements(By.cssSelector(".table-display td:nth-child(3)"));
+        int sum2 = 0;
+        for(int j =0;j<values2.size();j++)
+        {
+            sum2 = sum2 +Integer.parseInt(values2.get(j).getText());
+        }
+        System.out.println(sum2);
+
+
 }
 }
