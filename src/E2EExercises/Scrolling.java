@@ -47,6 +47,7 @@ public class Scrolling {
         }
         System.out.println(sum2);
 
-
+        //assingment 1 - show size of rows and columns in the table
+        System.out.println(driver.findElements(By.cssSelector(".table-display td:nth-child(3)")).size());
 }
 }
