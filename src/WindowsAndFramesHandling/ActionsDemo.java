@@ -9,9 +9,9 @@ import org.openqa.selenium.interactions.Actions;
 
 public class ActionsDemo {
 
-    public static void main(String[] args){
+    public static void main(String[] args) throws InterruptedException {
 
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\IzabelaMilisiewicz\\Downloads\\chromedriver_win32 (1)\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\IzabelaMilisiewicz\\Downloads\\chromedriver_win32 (3)\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://www.amazon.com/");
