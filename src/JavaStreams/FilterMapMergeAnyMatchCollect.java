@@ -3,6 +3,7 @@ package JavaStreams;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -109,7 +110,7 @@ public class FilterMapMergeAnyMatchCollect {
     public void streamCollect(){
 
         //this method it used to collect your results and convert it back to any list
-        //list -> new list
+        //lista -> new list
 
         List<String> ls = Stream.of("Igor", "Aneta", "Mikołaj", "Agata", "Krzyś", "Alex", "Karol", "Max", "Iza").filter(s -> s.endsWith("a"))
                 .map(s -> s.toUpperCase()).collect(Collectors.toList());
@@ -123,5 +124,25 @@ public class FilterMapMergeAnyMatchCollect {
         //give me only the third index
         List<Integer> li = values.stream().distinct().sorted().collect(Collectors.toList());
         System.out.println(li.get(2));
+
+        System.out.println("Below the same task made with for loop");
+        //print unique numbers from the array and sort it
+        int values1[] = {3,2,2,7,5,1,9,7};
+        int length = values1.length;
+
+        Arrays.sort(values1);
+
+        //Pick all elements one by one
+        for (int i=0; i< length; i++){
+
+            //check if the picked element is already printed
+            int j;
+            for (j=0; j<i; j++)
+                if (values1[i] == values1[j])
+                    break;
+
+            if(i==j)
+                System.out.println(values1[i] + " ");
+        }
     }
 }
