@@ -32,6 +32,10 @@ public class InvokingMultipleWindowsOrTabs {
         File file = name.getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(file, new File("logo.png"));
 
+        //get height and width of the field for UI testing
+        System.out.println(name.getRect().getDimension().getHeight());
+        System.out.println(name.getRect().getDimension().getWidth());
+
         driver.quit();
     }
 }
