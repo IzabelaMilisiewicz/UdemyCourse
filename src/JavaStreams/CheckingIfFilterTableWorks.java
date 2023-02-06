@@ -20,7 +20,7 @@ public class CheckingIfFilterTableWorks {
         driver.findElement(By.id("search-field")).sendKeys(lookingFor);
         //all results after filter - we are creating list veggies with all results
         List<WebElement> veggies = driver.findElements(By.xpath("//tr/td[1]"));
-        //what should be filtered - we are creating new list and we are checking if all filttered texts contains work Rice
+        //what should be filtered - we are creating new list and we are checking if all filttered texts contains searched word
         List<WebElement> filteredList = veggies.stream().filter(veggie -> veggie.getText().contains(lookingFor)).collect(Collectors.toList());
         Assert.assertEquals(veggies.size(), filteredList.size());
         System.out.println("Filter works correctly");

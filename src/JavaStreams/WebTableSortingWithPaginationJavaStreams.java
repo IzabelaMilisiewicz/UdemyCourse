@@ -23,13 +23,14 @@ public class WebTableSortingWithPaginationJavaStreams {
         //capture all webelements into list
         List<WebElement> products = driver.findElements(By.xpath("//tr/td[1]"));
 
-        //capture text of all elements into new list
+        //capture text of all elements into new list using streams
         List<String> originalList = products.stream().map(s->s.getText()).collect(Collectors.toList());
 
         //sort on the original list
         List<String> sortedList = originalList.stream().sorted().collect(Collectors.toList());
 
         //compare original list vs sorted list
+//        //assertEquals is specifically for comparison between two objects (strings, integers or any class objects). Whereas, assertTrue is more generic in the sense that it asserts any condition with boolean value true
         Assert.assertTrue(originalList.equals(sortedList));
         System.out.println("Assert passed");
 
