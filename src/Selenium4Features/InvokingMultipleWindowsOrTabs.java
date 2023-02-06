@@ -1,15 +1,16 @@
 package Selenium4Features;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WindowType;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.Set;
 
 public class InvokingMultipleWindowsOrTabs {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\IzabelaMilisiewicz\\Downloads\\chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.get("https://rahulshettyacademy.com/angularpractice/");
@@ -25,6 +26,12 @@ public class InvokingMultipleWindowsOrTabs {
         String courseName = driver.findElements(By.cssSelector("a[href*='https://courses.rahulshettyacademy.com/p']")).get(1).getText();
         driver.switchTo().window(parentWindowId);
         driver.findElement(By.cssSelector("[name='name']")).sendKeys(courseName);
+
+        //get screenshot of WebElement
+        WebElement name = driver.findElement(By.cssSelector("[name='name']"));
+        File file = name.getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(file, new File("logo.png"));
+
         driver.quit();
     }
 }
