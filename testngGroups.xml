@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Loan Department">
+
+<!--    if we will use in out test case @BeforeTest it will be launched before all tests from day 2 and 1-->
+    <test name ="Regression">
+        <groups>
+            <run>
+                <exclude name="Smoke"/>
+<!--                <include name="Smoke"/>-->
+            </run>
+        </groups>
+        <classes>
+            <class name="TestNg.day1"/>
+            <class name="TestNg.day2"/>
+            <class name="TestNg.day3"/>
+        </classes>
+    </test>
+
+</suite>

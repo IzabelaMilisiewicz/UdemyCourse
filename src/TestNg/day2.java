@@ -1,16 +1,17 @@
 package TestNg;
 
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 public class day2 {
 
-    @Test
+    @Test(timeOut = 4000)
     public void WebLoginHomeLoan(){
         //selenium
-        System.out.println("webloginHome");
+        System.out.println("webloginHome - this is dependency for MobileSignOut");
     }
 
-    @Test
+    @Test(enabled = false)
     public void MobileLoginHome(){
         //selenium
         System.out.println("MobileLoginHome");
@@ -22,15 +23,21 @@ public class day2 {
         System.out.println("MobileSignIn");
     }
 
-    @Test
+    @Test(dependsOnMethods = {"WebLoginHomeLoan", "MobileSignIn"})
     public void MobileSignOut(){
         //selenium
-        System.out.println("MobileSignOut");
+        System.out.println("MobileSignOut depending on method WebLoginHomeLoan and MobileSignIn");
     }
 
-    @Test
+    @Test(groups = {"Smoke"})
     public void LoginAPIHome(){
         //selenium
         System.out.println("LoginAPIHome");
+    }
+
+    @BeforeTest
+    public void anotherPrerequisition(){
+        //selenium
+        System.out.println("anotherPrerequisition");
     }
 }

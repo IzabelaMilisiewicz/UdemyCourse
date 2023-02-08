@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Loan Department">
+
+<!--    if we will use in out test case @BeforeTest it will be launched before all tests from day 2 and 1-->
     <test name ="Personal loan">
         <classes>
             <class name="TestNg.day1"/>
@@ -11,6 +13,8 @@
             </class>
         </classes>
     </test>
+
+<!--    here @BeforeTest from day 3 will be executed-->
     <test name="Car loan">
         <classes>
             <class name="TestNg.day3">
@@ -20,4 +24,5 @@
             </class>
         </classes>
     </test>
+
 </suite>
