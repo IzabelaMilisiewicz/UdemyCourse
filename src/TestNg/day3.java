@@ -1,9 +1,9 @@
 package TestNg;
 
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.testng.Assert;
+import org.testng.annotations.*;
+
+import java.net.URL;
 
 public class day3 {
 
@@ -18,17 +18,19 @@ public class day3 {
         //selenium
         System.out.println("good");
     }
-
+    @Parameters({"URL"})
     @Test
-    public void better(){
+    public void better(String urlDay3){
         //selenium
         System.out.println("better");
+        System.out.println(urlDay3);
     }
 
     @Test
     public void theBest(){
         //selenium
         System.out.println("theBest");
+        Assert.assertTrue(false);
     }
 
     @BeforeTest

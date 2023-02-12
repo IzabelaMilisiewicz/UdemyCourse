@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Loan Department">
+<suite name="Loan Department" parallel="tests" thread-count="2">
+<!--    parallel="tests" = what we would like to run in paralell; thread-count="2" = how many test we want to run together-->
+<!--    to use that on appium you would need to have several devices connected, on web few windows will be open-->
+    <listeners>
+        <listener class-name="TestNg.Listeners"/>
+    </listeners>
 
 <!--    if we will use in out test case @BeforeTest it will be launched before all tests from day 2 and 1-->
     <test name ="Personal loan">
+        <parameter name="URL" value="https://rahulshettyacademy.com/"></parameter>
+        <parameter name="APIKey/usrname" value="123456"></parameter>
         <classes>
             <class name="TestNg.day1"/>
             <class name="TestNg.day2">
@@ -16,10 +23,11 @@
 
 <!--    here @BeforeTest from day 3 will be executed-->
     <test name="Car loan">
+        <parameter name="URL" value="day3.com"></parameter>
         <classes>
             <class name="TestNg.day3">
                 <methods>
-                    <include name="better"/>
+<!--                    <include name="better"/>-->
                 </methods>
             </class>
         </classes>
